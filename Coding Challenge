@@ -18,7 +18,7 @@ INSERT INTO ORDERS ( CustomerID,ProductID ) VALUES(
 
 SELECT * FROM ORDERS WHERE ORDERS.CustomerID=(Select ID from Customers where FirstName ='Tina');
 
-SELECT SUM(Price) from (SELECT Price from Products inner join Orders on Orders.ProductID=Products.ID where Products.Name='iPhone') as iPhone;
+SELECT SUM(products.Price) from Products inner join Orders on Orders.ProductID=Products.ID)
 UPDATE Products set Price = 250.00 WHERE Name = 'iPhone';
 Select * from Products;
 
