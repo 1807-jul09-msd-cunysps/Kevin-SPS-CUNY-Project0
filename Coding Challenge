@@ -1,0 +1,25 @@
+INSERT INTO CUSTOMERS (FirstName, LastName, CardNumber) Values ('Kevin', 'Tang' , 1234567812345678)
+INSERT INTO CUSTOMERS (FirstName, LastName, CardNumber) Values ('Issac', 'Newton', 1234123456785678)
+INSERT INTO CUSTOMERS (FirstName, LastName, CardNumber) Values ('Nikolas', 'Tesla' ,5678567812341234)
+INSERT INTO CUSTOMERS (FirstName, LastName, CardNumber) Values ('Thomas', 'Edison', 5678123456781234)
+
+INSERT INTO Products (Name, Price) Values ('Samsung'+space(1)+'Galaxy'+Space(1)+'S8', 799.99);
+INSERT INTO Products (Name, Price) Values ('Playstation'+SPACE(1)+'4', 399.99);
+INSERT INTO Products (Name, Price) Values ('Nintendo'+SPACE(1)+'Switch', 299.99);
+
+INSERT INTO ORDERS (ProductID, CustomerID) Values (1,1);
+INSERT INTO ORDERS (ProductID, CustomerID) Values (1,2);
+INSERT INTO ORDERS (ProductID, CustomerID) Values (2, 1);
+
+INSERT INTO PRODUCTS (Name, Price) VALUES ('iPhone', 200.00)
+INSERT INTO CUSTOMERs (FirstName, LastName) VALUES('Tina', 'Smith')
+INSERT INTO ORDERS ( CustomerID,ProductID ) VALUES(
+(SELECT distinct ID FROM CUSTOMERS WHERE FirstName = 'Tina'), (Select ID from Products where NAME = 'iPhone') )
+
+SELECT * FROM ORDERS WHERE ORDERS.CustomerID=(Select ID from Customers where FirstName ='Tina');
+
+SELECT SUM(Price) from (SELECT Price from Products inner join Orders on Orders.ProductID=Products.ID where Products.Name='iPhone') as iPhone;
+UPDATE Products set Price = 250.00 WHERE Name = 'iPhone';
+Select * from Products;
+
+SELECT Price from Products where name = 'iPhone';
